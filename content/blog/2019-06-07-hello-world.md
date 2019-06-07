@@ -6,3 +6,5 @@ description: Hello World
 We are testing our new blog with Gatsby-Netlify 
 
 `const testing = () => return true`
+
+We are testing an update
