@@ -14,13 +14,13 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { order: DESC, fields: frontmatter___date }
         limit: 1000
       ) {
         edges {
           node {
             frontmatter {
-              path
+              title
             }
           }
         }
@@ -33,7 +33,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
+        path: node.frontmatter.title,
         component: blogPostTemplate,
         context: {}, // additional data can be passed via context
       })
